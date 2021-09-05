@@ -25,7 +25,7 @@ const Profile = () => {
   }
   return (
     <>
-      <Header back title="Thông tin cá nhân" />
+      <Header back title="Thông tin cá nhân edit" />
       <SafeAreaView style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View>
