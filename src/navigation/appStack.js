@@ -8,11 +8,11 @@ const Stack = createStackNavigator();
 const appStack = () => {
   return (
     <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Home"
         component={Home}
         options={{headerShown: false}}
-      />
+      /> */}
       <Stack.Screen
         name="Profile"
         component={Profile}
