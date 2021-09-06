@@ -1,30 +1,29 @@
-import {StyleSheet} from 'react-native'
-import THEME from '../../constants/theme'
+import {StyleSheet} from 'react-native';
+import {COLORS, SIZES} from '../../constants/theme';
 export const styles = StyleSheet.create({
-  container:{
+  container: {
     alignItems: 'center',
-    marginTop: 20
+    marginTop: 20,
   },
   btnItem: {
-    backgroundColor: THEME.COLORS.white,
+    backgroundColor: COLORS.white,
     height: 60,
-    width: THEME.SIZES.width - 70,
+    width: SIZES.width - 70,
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 8,
-    marginBottom: 20
+    marginBottom: 20,
   },
   textBtnItem: {
     marginLeft: 10,
     fontSize: 16,
     fontWeight: 'bold',
-    color: THEME.COLORS.primary,
+    color: COLORS.primary,
   },
   iconBtnItem: {
-    backgroundColor: THEME.COLORS.primary,
+    backgroundColor: COLORS.primary,
     padding: 18,
     borderTopLeftRadius: 8,
-    borderBottomLeftRadius: 8
+    borderBottomLeftRadius: 8,
   },
 });
-

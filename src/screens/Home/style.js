@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
   },
+  areaChart: {height: 200, paddingVertical: 16},
   topParams: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
@@ -52,6 +53,16 @@ export const styles = StyleSheet.create({
     margin: 5,
     height: SIZES.height * 0.25,
     width: SIZES.width * 0.5,
+  },
+  markerPoint: {
+    padding: 10,
+    backgroundColor: 'rgba(255,10,0,0.5)',
+    borderRadius: 50,
+  },
+  title: {
+    color: 'white',
+    fontSize: 10,
+    fontWeight: 'bold',
   },
   buttonText: {
     fontSize: 16,

@@ -3,11 +3,12 @@ import {Text, View, TouchableOpacity, ActivityIndicator} from 'react-native';
 import {PieChart} from 'react-native-chart-kit';
 import {StackedAreaChart} from 'react-native-svg-charts';
 import * as shape from 'd3-shape';
+import MapView, {Marker} from 'react-native-maps';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {useQuery} from '@apollo/client';
 
 import {styles} from './style';
 import {COLORS, SIZES} from '../../constants/theme';
-import MapVN from '../../components/MapVN';
 import {GET_PARAMS_COVID} from '../../api/graphql/queries/paramsCovid';
 
 const textDanger = 'Bị nhiễm';
@@ -22,6 +23,13 @@ const Home = () => {
   const [tabs, setTabs] = useState(0);
   const {loading, error, data} = useQuery(GET_PARAMS_COVID);
 
+  const [markerList, setMarkers] = useState();
+
+  // const renderMarkers = c => {
+  //   console.log('CCCC: ', c);
+  //   <MapMarker data={c} />;
+  // };
+
   useEffect(() => {
     if (!loading && data) {
       setDataNational(data.totalVietNam);
@@ -30,6 +38,7 @@ const Home = () => {
   }, [loading, data]);
 
   console.log('DATA COVID', dataNational);
+  console.log('DATA PROVINCE', dataProvince);
 
   const chartConfig = {
     backgroundGradientFrom: '#1E2923',
@@ -214,7 +223,7 @@ const Home = () => {
             absolute
           />
           <StackedAreaChart
-            style={{height: 200, paddingVertical: 16}}
+            style={styles.areaChart}
             data={dataArea}
             keys={keys}
             colors={colors}
@@ -224,7 +233,43 @@ const Home = () => {
           />
         </>
       )}
-      {tabs === 1 && <MapVN />}
+      {tabs === 1 && (
+        <View style={{flex: 1}}>
+          <MapView
+            customMapStyle={styles.mapStyle}
+            onMapReady={() => setMarkers(dataProvince.length)}
+            mapType="standard"
+            provider="google"
+            style={{flex: 1}}
+            region={{
+              latitude: 10.823099,
+              longitude: 106.629664,
+              latitudeDelta: 0.1646,
+              longitudeDelta: 0.5994,
+            }}>
+            {markerList !== 0
+              ? dataProvince.map((d, index) => (
+                  <Marker
+                    key={index}
+                    coordinate={{
+                      latitude: Number(d.Lat) + 0.34,
+                      longitude: Number(d.Long) - 0.00002,
+                    }}
+                    tracksViewChanges={false}
+                    anchor={{x: 0.5, y: -0.5}}>
+                    <View style={styles.markerPoint}>
+                      <Icon
+                        name="ios-warning"
+                        size={30}
+                        color="rgba(255,255,255,1)"
+                      />
+                    </View>
+                  </Marker>
+                ))
+              : null}
+          </MapView>
+        </View>
+      )}
     </View>
   );
 };

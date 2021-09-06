@@ -19,7 +19,7 @@ const TOpacityCustom = props => {
       <Text style={styles.textBtnItem}>{title}</Text>
     </TouchableOpacity>
   );
-}
+};
 
 const Category = () => {
   return (

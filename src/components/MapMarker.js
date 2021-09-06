@@ -4,9 +4,10 @@ import {View, Text, StyleSheet} from 'react-native';
 import {Marker} from 'react-native-maps';
 
 const MapMarker = ({data}) => {
+  console.log('MAP: ', data);
   return (
     <Marker
-      coordinate={data.coordinates}
+      coordinate={[{latitude: data.Lat, longitude: data.Long}]}
       tracksViewChanges={false}
       anchor={{x: 0.5, y: -0.5}}>
       <View style={styles.container}>
