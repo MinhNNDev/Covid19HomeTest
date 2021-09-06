@@ -1,24 +1,64 @@
 import {StyleSheet} from 'react-native';
 
+import {COLORS, SIZES} from '../../constants/theme';
+
+const overlayColor = 'rgba(0,0,0,0.4)';
+
+const rectDimensions = SIZES.width * 0.65;
+const rectBorderWidth = SIZES.width * 0.008;
+const rectBorderColor = 'rgba(255,255,255,0.8)';
+
+const scanBarWidth = SIZES.width * 0.46;
+const scanBarHeight = SIZES.width * 0.0025;
+const scanBarColor = COLORS.lightGreen;
+
 export const styles = StyleSheet.create({
-  container: {
+  container: {flex: 1},
+  txtDescScan: {
+    fontSize: 20,
+    color: 'white',
+    textAlign: 'center',
+    width: SIZES.width * 0.75,
+  },
+  customsQR: {flexDirection: 'row'},
+  rectangleContainer: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
   },
-  centerText: {
+  rectangle: {
+    height: rectDimensions,
+    width: rectDimensions,
+    borderWidth: rectBorderWidth,
+    borderColor: rectBorderColor,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+  },
+  topOverlay: {
     flex: 1,
-    fontSize: 18,
-    padding: 30,
-    color: '#777',
+    height: SIZES.width,
+    width: SIZES.width,
+    backgroundColor: overlayColor,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  textBold: {
-    fontWeight: '700',
-    color: '#000',
+  bottomOverlay: {
+    flex: 1,
+    height: SIZES.width,
+    width: SIZES.width,
+    backgroundColor: overlayColor,
+    paddingBottom: SIZES.width * 0.25,
   },
-  buttonText: {
-    fontSize: 21,
-    color: 'rgb(0,122,255)',
+  leftAndRightOverlay: {
+    height: SIZES.width * 0.65,
+    width: SIZES.width,
+    backgroundColor: overlayColor,
   },
-  buttonTouchable: {
-    padding: 16,
+  scanBar: {
+    width: scanBarWidth,
+    height: scanBarHeight,
+    backgroundColor: scanBarColor,
   },
 });

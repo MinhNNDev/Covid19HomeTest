@@ -17,22 +17,19 @@ const textDeath = 'Tử vong';
 const Home = () => {
   const colors = [COLORS.yellow, COLORS.lightGreen, COLORS.red];
   const keys = ['danger', 'sucess', 'death'];
-  const [dataCovid, setDataCovid] = useState([]);
-  const [dataVietNam, setDataVietNam] = useState([]);
+  const [dataProvince, setDataProvince] = useState([]);
+  const [dataNational, setDataNational] = useState([]);
   const [tabs, setTabs] = useState(0);
   const {loading, error, data} = useQuery(GET_PARAMS_COVID);
 
   useEffect(() => {
     if (!loading && data) {
-      setDataCovid(data.totalVietNam);
+      setDataNational(data.totalVietNam);
+      setDataProvince(data.provinces);
     }
   }, [loading, data]);
 
-  console.log('DATA COVID', dataCovid);
-
-  const warningVietNam = dataCovid.confirmed;
-  const sucessVietNam = dataCovid.recovered;
-  const deathVietNam = dataCovid.deaths;
+  console.log('DATA COVID', dataNational);
 
   const chartConfig = {
     backgroundGradientFrom: '#1E2923',
@@ -120,7 +117,7 @@ const Home = () => {
               styles.anytime,
               {color: COLORS.yellow, backgroundColor: COLORS.yellowO},
             ]}>
-            {dataCovid.confirmed}
+            {dataNational.confirmed}
           </Text>
           <Text
             style={[
@@ -143,7 +140,7 @@ const Home = () => {
               styles.anytime,
               {color: COLORS.lightGreen, backgroundColor: COLORS.lightGreenO},
             ]}>
-            {dataCovid.recovered}
+            {dataNational.recovered}
           </Text>
           <Text
             style={[
@@ -166,7 +163,7 @@ const Home = () => {
               styles.anytime,
               {color: COLORS.red, backgroundColor: COLORS.redO},
             ]}>
-            {dataCovid.deaths}
+            {dataNational.deaths}
           </Text>
           <Text
             style={[
