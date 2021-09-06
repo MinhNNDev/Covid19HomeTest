@@ -1,21 +1,26 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {Home, Profile} from '../screens';
+import {Home, Profile, Category} from '../screens';
 
 const Stack = createStackNavigator();
 
 const appStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Home">
-      {/* <Stack.Screen
+    <Stack.Navigator initialRouteName="Category">
+      <Stack.Screen
         name="Home"
         component={Home}
         options={{headerShown: false}}
-      /> */}
+      />
       <Stack.Screen
         name="Profile"
         component={Profile}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Category"
+        component={Category}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

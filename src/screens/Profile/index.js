@@ -25,7 +25,7 @@ const Profile = () => {
   }
   return (
     <>
-      <Header back title="Thông tin cá nhân edit" />
+      <Header back title="Thông tin cá nhân" />
       <SafeAreaView style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View>
@@ -39,10 +39,7 @@ const Profile = () => {
               <TextInfor name="Giới tính" inforName="Nam" />
               <TextInfor name="Số BHYT" inforName="7474747474" />
               <TextInfor name="Tỉnh/TP" inforName="Bình Dương" />
-              <TextInfor
-                name="Huyện/TX/TP"
-                inforName="Thủ Dầu Một con bo cuoi ngu ngoc oc cho oc cuc"
-              />
+              <TextInfor name="Huyện/TX/TP" inforName="Thủ Dầu Một"/>
               <TextInfor name="Phường/xã" inforName="Phú Hòa" />
               <TextInfor name="Ấp/khu phố" inforName="Khu phố 6" />
               <TextInfor name="Tên đường" inforName="Trần Văn Ơn" />
