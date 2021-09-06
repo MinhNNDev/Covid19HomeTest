@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {Home, Profile, Category} from '../screens';
+import {Home, Profile, Category, Phone} from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +21,12 @@ const appStack = () => {
       <Stack.Screen
         name="Category"
         component={Category}
+        options={{headerShown: false}}
+      />
+
+      <Stack.Screen
+        name="Phone"
+        component={Phone}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
