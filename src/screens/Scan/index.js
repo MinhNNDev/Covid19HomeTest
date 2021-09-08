@@ -31,7 +31,7 @@ const Scan = () => {
     <QRCodeScanner
       showMarker
       onRead={onSuccess}
-      flashMode={RNCamera.Constants.FlashMode.torch}
+      // flashMode={RNCamera.Constants.FlashMode.torch}
       cameraStyle={{height: SIZES.height}}
       customMarker={
         <View style={styles.rectangleContainer}>
