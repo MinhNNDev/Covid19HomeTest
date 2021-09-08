@@ -1,13 +1,13 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {Home, Profile} from '../screens';
+import {Home, Profile, Info} from '../screens';
 
 const Stack = createStackNavigator();
 
 const appStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator initialRouteName="Info">
       <Stack.Screen
         name="Home"
         component={Home}
@@ -16,6 +16,11 @@ const appStack = () => {
       <Stack.Screen
         name="Profile"
         component={Profile}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Info"
+        component={Info}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
