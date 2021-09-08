@@ -12,20 +12,12 @@ function Phone() {
   return (
     <View style={styles.container}>
       <View style={styles.lable}>
-        <Text style={styles.textLog}>Thông tin</Text>
+        <Text style={styles.txtInformation}>Thông tin</Text>
       </View>
 
-      <View style={styles.lable}>
-        <Text style={styles.textLog2}>
-          Vui lòng cũng cấp số điện thoại của bạn để
-        </Text>
-
-        <Text style={styles.textLog2}>
-          nhận được hỗ trợ y tế sớm nhất khi bạn có
-        </Text>
-
-        <Text style={styles.textLog2}>nguy cơ nhiễm COVID-19</Text>
-      </View>
+      <Text style={styles.lable}>
+        Vui lòng cũng cấp số điện thoại của bạn để nhận được hỗ trợ y tế sớm nhất khi bạn có nguy cơ nhiễm COVID-19
+      </Text>
 
       <View>
         <View style={styles.phoneInput}>
@@ -37,42 +29,23 @@ function Phone() {
             />
           </View>
 
-          <View>
-            <TextInput
-              placeholder="Nhập số điện thoại hộ cái !!"
-              keyboardType="numeric"
-              onChangeText={text => setPhoneNumber(text)}
-            />
-          </View>
+          <TextInput
+            placeholder="Nhập số điện thoại"
+            keyboardType="numeric"
+            onChangeText={text => setPhoneNumber(text)}
+          />
         </View>
       </View>
 
       <View style={styles.confirm}>
-        <View>
-          <CheckBox value={isSelected} onValueChange={setSelection} />
-        </View>
 
-        <View>
-          <Text style={styles.textLog3}>
-            Xác nhận những thông tin bạn cung cấp là chính xác. Bạn
-          </Text>
-
-          <Text style={styles.textLog3}>
-            đã đọc, đồng ý với{' '}
-            <Text style={styles.textLog4}>Điều khoản sử dụng </Text> và đồng ý
-            chia sẻ
-          </Text>
-
-          <Text style={styles.textLog3}>
-            thông tin cá nhân của bạn với cơ quan y tế khi bạn được
-          </Text>
-
-          <Text style={styles.textLog3}>
-            xác định nhiễm hoặc nghi nhiễm Covid-19
-          </Text>
-        </View>
+        <CheckBox value={isSelected} onValueChange={setSelection} />
+        <Text style={styles.txtConform}>
+          Xác nhận những thông tin bạn cung cấp là chính xác. Bạn đã đọc, đồng ý với{' '} <Text style={styles.txtRules}>Điều khoản sử dụng </Text> và đồng ý chia sẻ thông tin cá nhân của bạn với cơ quan y tế khi bạn được xác định nhiễm hoặc nghi nhiễm Covid-19
+        </Text>
       </View>
 
+      
       <View>
         <TouchableOpacity style={styles.btnNext}>
           <Text style={styles.next}>Tiếp tục</Text>
