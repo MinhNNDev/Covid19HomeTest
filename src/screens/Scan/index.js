@@ -7,10 +7,23 @@ import * as Animatable from 'react-native-animatable';
 import {styles} from './style';
 import {SIZES} from '../../constants/theme';
 
-const iconScanColor = 'rgba(255,255,255,0.3)';
+const iconScanColor = 'rgba(255,255,255,0.1)';
 
 const Scan = () => {
+  // eslint-disable-next-line no-unused-vars
   var scanner: Scanner;
+
+  const [flashMode, setFlashMode] = React.useState('off');
+  const __handleFlashMode = () => {
+    if (flashMode === 'on') {
+      setFlashMode('off');
+    } else if (flashMode === 'off') {
+      setFlashMode('on');
+    } else {
+      setFlashMode('auto');
+    }
+  };
+
   const onSuccess = e => {
     Linking.openURL(e.data).catch(err =>
       console.error('An error occured', err),

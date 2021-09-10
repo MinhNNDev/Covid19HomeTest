@@ -1,4 +1,5 @@
-import InputValue from './InputValue'
-import Header from './Header'
+import MapMarker from './MapMarker';
+import InputValue from './InputValue';
+import Header from './Header';
 
-export {InputValue, Header};
+export {MapMarker, InputValue, Header};

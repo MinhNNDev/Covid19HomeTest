@@ -1,5 +1,3 @@
-import HanhChinhVN from './hanhchinhvn'
+import HanhChinhVN from './hanhchinhvn';
 
-export {
-    HanhChinhVN
-};
+export {HanhChinhVN};

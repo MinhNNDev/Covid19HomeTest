@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {COLORS} from '../constants/theme';
 
-import {Home, Scan, Category, ScanHistory} from '../screens';
+import {Home, Scan, Category} from '../screens';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,14 +28,19 @@ const Tabs = () => {
       tabBarOptions={{
         tabBarActiveTintColor: COLORS.primary,
         tabBarInactiveTintColor: 'gray',
-        tabBarStyle: [{display: 'flex'}],
+        tabBarStyle: [
+          {
+            display: 'flex',
+          },
+          null,
+        ],
       }}>
       <Tab.Screen
         name="Trang chủ"
         component={Home}
         options={{headerShown: false}}
       />
-      {/* <Tab.Screen name="Sức khỏe" component={LeaseCarScreen} /> */}
+      {/* <Tab.Screen name="Sức khỏe" component={Health} /> */}
       <Tab.Screen
         name="Quét mã"
         component={Scan}
@@ -43,7 +48,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         name="Danh mục"
-        component={ScanHistory}
+        component={Category}
         options={{headerShown: false}}
       />
     </Tab.Navigator>

@@ -53,21 +53,21 @@ const Home = () => {
   const dataPie = [
     {
       name: textDanger,
-      population: 1,
+      population: 565465,
       color: COLORS.yellow,
       legendFontColor: '#7F7F7F',
       legendFontSize: 12,
     },
     {
       name: textSucess,
-      population: 2,
+      population: 321144,
       color: COLORS.lightGreen,
       legendFontColor: '#7F7F7F',
       legendFontSize: 12,
     },
     {
       name: textDeath,
-      population: 3,
+      population: 46454,
       color: COLORS.red,
       legendFontColor: '#7F7F7F',
       legendFontSize: 12,

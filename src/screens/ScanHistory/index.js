@@ -9,12 +9,11 @@ import {
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Timeline from 'react-native-timeline-flatlist';
 
-import Header from '../../components/Header/index';
+import {Header} from '../../components';
 import {styles} from './style';
-import data from './data'
+import data from './data';
 
-import {COLORS} from '../../constants/theme'
-
+import {COLORS} from '../../constants/theme';
 
 const Category = () => {
   return (
@@ -29,6 +28,7 @@ const Category = () => {
           circleColor={COLORS.primary}
           lineColor={COLORS.primary}
           timeContainerStyle={{minWidth: 110, marginTop: 10}}
+          circleStyle={{marginLeft: 62}}
           timeStyle={{
             textAlign: 'center',
             backgroundColor: COLORS.primary,
@@ -47,6 +47,6 @@ const Category = () => {
       </View>
     </>
   );
-}
+};
 
 export default Category;

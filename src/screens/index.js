@@ -5,6 +5,19 @@ import Scan from './Scan';
 import Feedback from './Feedback';
 import Category from './Category';
 import ScanHistory from './ScanHistory';
-// import Phone from './Phone';
+import Info from './Info';
+import AuthOTP from './OTP';
+import Phone from './Phone';
 
-export {Auth, Home, Profile, Scan, Feedback, Category, ScanHistory};
+export {
+  Auth,
+  Info,
+  Home,
+  Phone,
+  Profile,
+  Scan,
+  Feedback,
+  Category,
+  ScanHistory,
+  AuthOTP,
+};

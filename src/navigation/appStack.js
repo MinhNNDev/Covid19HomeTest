@@ -1,7 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {Home, Profile, Category, Phone} from '../screens';
+import Tabs from './tabNavigation';
+import {Home, Profile, Category, Phone, ScanHistory} from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -10,23 +11,21 @@ const appStack = () => {
     <Stack.Navigator initialRouteName="Info">
       <Stack.Screen
         name="Home"
-        component={Home}
+        component={Tabs}
         options={{headerShown: false}}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Profile"
         component={Profile}
         options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Category"
-        component={Category}
-        options={{headerShown: false}}
-      />
-
-      <Stack.Screen
+	@@ -28,6 +29,11 @@ const appStack = () => {
         name="Phone"
         component={Phone}
+        options={{headerShown: false}}
+      /> */}
+      <Stack.Screen
+        name="History"
+        component={ScanHistory}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

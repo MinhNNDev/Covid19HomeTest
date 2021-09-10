@@ -16,6 +16,10 @@ target 'Covid19HomeTest' do
 
   pod 'react-native-camera', :path => '../node_modules/react-native-camera'
 
+  pod 'react-native-background-timer', :path => '../node_modules/react-native-background-timer'
+
+  pod 'RNCClipboard', :path => '../node_modules/@react-native-clipboard/clipboard'
+
   target 'Covid19HomeTestTests' do
     inherit! :complete
     # Pods for testing

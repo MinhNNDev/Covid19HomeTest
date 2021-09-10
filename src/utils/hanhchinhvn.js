@@ -1,4 +1,4 @@
-import provinces from '../assets/data/hanhchinhvn/tree.json'
+import provinces from '../assets/data/hanhchinhvn/tree.json';
 
 exports.provinces = provinces;
 
@@ -8,4 +8,3 @@ exports.provinces = provinces;
 //     const districts = await require(districtsFilePath);
 //     return districts;
 // }
-

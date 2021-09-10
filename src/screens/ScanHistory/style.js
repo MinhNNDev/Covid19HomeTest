@@ -9,12 +9,4 @@ export const styles = StyleSheet.create({
     flex: 1,
     marginRight: 10,
   },
-  timeStyles: {
-    textAlign: 'center',
-    backgroundColor: COLORS.primary,
-    color: 'white',
-    padding: 5,
-    borderBottomRightRadius: 30,
-    borderTopRightRadius: 30,
-  },
 });

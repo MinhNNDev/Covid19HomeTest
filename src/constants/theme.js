@@ -5,7 +5,7 @@ export const COLORS = {
   primary: '#3B4096',
   secondary: '#3B3B3B',
 
-  white: '#FFFFFF',
+  white: '#fff',
   yellow: '#F5DF4D',
   yellowO: 'rgba(245, 223, 77, 0.2)',
   lightGreen: '#4BEE70',
@@ -26,7 +26,7 @@ export const SIZES = {
   // global sizes
   base: 8,
   font: 14,
-  radius: 12,
+  radius: 4,
   padding: 24,
 
   // font sizes

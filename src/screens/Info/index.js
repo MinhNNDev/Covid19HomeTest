@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { Text, View, Linking, Button, Picker } from 'react-native';
-import { styles } from './style';
-import { COLORS } from '../../constants/theme';
-import { Header, InputValue } from '../../components';
-import { FlatList, ScrollView, TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import React, {useEffect, useState} from 'react';
+import {Text, View, Linking, Platform, Picker} from 'react-native';
+import {styles} from './style';
+import {COLORS} from '../../constants/theme';
+import {Header, InputValue} from '../../components';
+import {
+  FlatList,
+  ScrollView,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native-gesture-handler';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Feather from 'react-native-vector-icons/Feather';
-import { RadioButton } from 'react-native-paper';
+import {RadioButton} from 'react-native-paper';
 import CheckBox from '@react-native-community/checkbox';
-import { useValidation } from 'react-native-form-validator';
+import {useValidation} from 'react-native-form-validator';
 //import {Picker} from '@react-native-picker/picker';
 
 import customValidationMessages from '../../validate/customValidationMessages';
-import { HanhChinhVN } from '../../utils'
-
+import {HanhChinhVN} from '../../utils';
 
 function Info() {
-
   // Hanh chinh Viet Nam
   const provinces = HanhChinhVN.provinces;
 
@@ -43,10 +46,12 @@ function Info() {
     setDisplayBirtday(birthday);
   }, []);
 
-  const setDisplayBirtday = (birthday) => {
-    let format = `${birthday.getDate()}/${birthday.getMonth() + 1}/${birthday.getFullYear()}`;
+  const setDisplayBirtday = birthday => {
+    let format = `${birthday.getDate()}/${
+      birthday.getMonth() + 1
+    }/${birthday.getFullYear()}`;
     setBdDisplay(format);
-  }
+  };
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -55,7 +60,7 @@ function Info() {
     setDisplayBirtday(currentDate);
   };
 
-  const showMode = (currentMode) => {
+  const showMode = currentMode => {
     setShow(true);
     setMode(currentMode);
   };
@@ -66,20 +71,31 @@ function Info() {
 
   const [checked, setChecked] = useState('0');
   const checkedVerify = () => {
-    if(checked)
-      return 0;
+    if (checked) return 0;
     return 1;
-  }
+  };
 
-  const { validate, isFieldInError, getErrorsInField, getErrorMessages } =
+  const {validate, isFieldInError, getErrorsInField, getErrorMessages} =
     useValidation({
-      state: { fullname, phone, birthday, gender, cmnd, provinces, district, ward, town, detailAdd, agree },
+      state: {
+        fullname,
+        phone,
+        birthday,
+        gender,
+        cmnd,
+        provinces,
+        district,
+        ward,
+        town,
+        detailAdd,
+        agree,
+      },
       messages: customValidationMessages,
-  });
+    });
 
   const onPressButton = () => {
     const isOk = validate({
-      fullname: { maxlength: 30, required: true },
+      fullname: {maxlength: 30, required: true},
       phone: {required: true, maxlength: 10},
       birthday: {required: true},
       gender: {required: true},
@@ -91,7 +107,7 @@ function Info() {
       detailAdd: {required: true},
     });
     /*Xử lý*/
-  }  
+  };
 
   return (
     <View style={styles.container}>
@@ -99,9 +115,10 @@ function Info() {
       <View style={styles.main}>
         <ScrollView>
           <View style={styles.form}>
-
             {/*Họ và tên*/}
-            <Text style={styles.title}>Họ và Tên <Text style={styles.redStar}>*</Text></Text>
+            <Text style={styles.title}>
+              Họ và Tên <Text style={styles.redStar}>*</Text>
+            </Text>
             <InputValue
               placeholder="Họ và Tên"
               icon="user-o"
@@ -111,10 +128,12 @@ function Info() {
             {isFieldInError('fullname') &&
               getErrorsInField('fullname').map(errorMessage => (
                 <Text style={styles.errMessage}>{errorMessage}</Text>
-            ))}
+              ))}
 
             {/*Số điện thoại*/}
-            <Text style={styles.title}>Số điện thoại <Text style={styles.redStar}>*</Text></Text>
+            <Text style={styles.title}>
+              Số điện thoại <Text style={styles.redStar}>*</Text>
+            </Text>
             <InputValue
               placeholder="Số điện thoại"
               icon="phone"
@@ -123,20 +142,22 @@ function Info() {
             {isFieldInError('phone') &&
               getErrorsInField('phone').map(errorMessage => (
                 <Text style={styles.errMessage}>{errorMessage}</Text>
-            ))}
+              ))}
 
             {/*Ngày tháng năm sinh*/}
-            <Text style={styles.title}>Ngày tháng năm sinh <Text style={styles.redStar}>*</Text></Text>
+            <Text style={styles.title}>
+              Ngày tháng năm sinh <Text style={styles.redStar}>*</Text>
+            </Text>
             <View style={styles.inputContainer}>
-              <Feather name='calendar' style={{ fontSize: 22 }} />
+              <Feather name="calendar" style={{fontSize: 22}} />
               <TextInput
                 style={styles.inputContent}
                 placeholder="dd/MM/yyyy"
                 value={birthdayDisplay}
-              // onChangeText={birthday => setInfoUser({...infoUser, ...{birthday}})}
+                // onChangeText={birthday => setInfoUser({...infoUser, ...{birthday}})}
               />
               <TouchableOpacity onPress={showDatepicker}>
-                <Feather name='chevron-down' style={{ fontSize: 22 }} />
+                <Feather name="chevron-down" style={{fontSize: 22}} />
               </TouchableOpacity>
               {show && (
                 <DateTimePicker
@@ -151,37 +172,43 @@ function Info() {
             {isFieldInError('birthday') &&
               getErrorsInField('birthday').map(errorMessage => (
                 <Text style={styles.errMessage}>{errorMessage}</Text>
-            ))}
+              ))}
 
             {/*Giới tính*/}
-            <Text style={styles.title}>Giới tính <Text style={styles.redStar}>*</Text></Text>
-            <RadioButton.Group onValueChange={gender => setGender(gender)} value={gender}>
-              <View style={{ flexDirection: 'row' }}>
-                <View style={{ flexDirection: 'row' }}>
+            <Text style={styles.title}>
+              Giới tính <Text style={styles.redStar}>*</Text>
+            </Text>
+            <RadioButton.Group
+              onValueChange={gender => setGender(gender)}
+              value={gender}>
+              <View style={{flexDirection: 'row'}}>
+                <View style={{flexDirection: 'row'}}>
                   <RadioButton
                     value="0"
                     status={checked === '0' ? 'checked' : 'unchecked'}
                     onPress={() => setChecked('0')}
                   />
-                  <Text style={{ paddingTop: 8 }}>Nam</Text>
+                  <Text style={{paddingTop: 8}}>Nam</Text>
                 </View>
-                <View style={{ flexDirection: 'row', paddingLeft: 10 }}>
+                <View style={{flexDirection: 'row', paddingLeft: 10}}>
                   <RadioButton
                     value="1"
                     status={checked === '1' ? 'checked' : 'unchecked'}
                     onPress={() => setChecked('1')}
                   />
-                  <Text style={{ paddingTop: 8 }}>Nữ</Text>
+                  <Text style={{paddingTop: 8}}>Nữ</Text>
                 </View>
               </View>
             </RadioButton.Group>
             {isFieldInError('gender') &&
               getErrorsInField('gender').map(errorMessage => (
                 <Text style={styles.errMessage}>{errorMessage}</Text>
-            ))}
+              ))}
 
             {/*CMND*/}
-            <Text style={styles.title}>Số CMND/Căn cước công dân <Text style={styles.redStar}>*</Text></Text>
+            <Text style={styles.title}>
+              Số CMND/Căn cước công dân <Text style={styles.redStar}>*</Text>
+            </Text>
             <InputValue
               placeholder="CMND/Căn cước công dân"
               icon="id-card-o"
@@ -190,7 +217,7 @@ function Info() {
             {isFieldInError('cmnd') &&
               getErrorsInField('cmnd').map(errorMessage => (
                 <Text style={styles.errMessage}>{errorMessage}</Text>
-            ))}
+              ))}
 
             {/*BHYT*/}
             <Text style={styles.title}>Bảo hiểm Y tế</Text>
@@ -201,83 +228,104 @@ function Info() {
             />
 
             {/*Tỉnh/TP*/}
-            <Text style={styles.title}>Tỉnh/Thành phố <Text style={styles.redStar}>*</Text></Text>
+            <Text style={styles.title}>
+              Tỉnh/Thành phố <Text style={styles.redStar}>*</Text>
+            </Text>
             <View style={styles.picker}>
               <Picker
                 province={province}
-                style={{ height: 50, width: 370, }}
+                style={{height: 50, width: 370}}
                 onValueChange={(itemValue, itemIndex) => {
                   setProvince(itemValue);
                   setDistrict(null);
                   setWard(null);
-                }}
-              >
-                {
-                  Object.keys(provinces).map((item) => {
-                    return (
-                      <Picker.Item label={provinces[item].name_with_type} value={provinces[item].code} key={provinces[item].code} />
-                    )
-                  })
-                }
+                }}>
+                {Object.keys(provinces).map(item => {
+                  return (
+                    <Picker.Item
+                      label={provinces[item].name_with_type}
+                      value={provinces[item].code}
+                      key={provinces[item].code}
+                    />
+                  );
+                })}
               </Picker>
             </View>
             {isFieldInError('provinces') &&
               getErrorsInField('provinces').map(errorMessage => (
                 <Text style={styles.errMessage}>{errorMessage}</Text>
-            ))}
+              ))}
 
             {/*Quận/Huyện/Thị xã/Thành phố*/}
-            <Text style={styles.title}>Quận/Huyện/Thị xã/Thành phố <Text style={styles.redStar}>*</Text></Text>
+            <Text style={styles.title}>
+              Quận/Huyện/Thị xã/Thành phố <Text style={styles.redStar}>*</Text>
+            </Text>
             <View style={styles.picker}>
               <Picker
                 district={district}
-                style={{ height: 50, width: 370 }}
+                style={{height: 50, width: 370}}
                 onValueChange={(itemValue, itemIndex) => {
                   setDistrict(itemValue);
                   setWard(null);
-                }}
-              >
-                <Picker.Item label='Chọn' value={null} key={null}/>
+                }}>
+                <Picker.Item label="Chọn" value={null} key={null} />
                 {province !== null &&
-                  Object.keys(provinces[province]['quan-huyen']).map((item) => {
+                  Object.keys(provinces[province]['quan-huyen']).map(item => {
                     return (
-                      <Picker.Item label={provinces[province]['quan-huyen'][item].name_with_type} value={provinces[province]['quan-huyen'][item].code} key={provinces[province]['quan-huyen'][item].code}/>
-                    )
-                  })
-                }
+                      <Picker.Item
+                        label={
+                          provinces[province]['quan-huyen'][item].name_with_type
+                        }
+                        value={provinces[province]['quan-huyen'][item].code}
+                        key={provinces[province]['quan-huyen'][item].code}
+                      />
+                    );
+                  })}
               </Picker>
             </View>
             {isFieldInError('district') &&
               getErrorsInField('district').map(errorMessage => (
                 <Text style={styles.errMessage}>{errorMessage}</Text>
-            ))}
+              ))}
 
             {/*Xã/Phường/Thị trấn*/}
-            <Text style={styles.title}>Xã/Phường/Thị trấn <Text style={styles.redStar}>*</Text></Text>
+            <Text style={styles.title}>
+              Xã/Phường/Thị trấn <Text style={styles.redStar}>*</Text>
+            </Text>
             <View style={styles.picker}>
               <Picker
                 ward={ward}
-                style={{ height: 50, width: 370 }}
-                onValueChange={(itemValue, itemIndex) => setWard(itemValue)}
-              >
-                <Picker.Item label='Chọn' value={null} key={null}/>
-                {province !== null && district !== null &&
-                  Object.keys(provinces[province]['quan-huyen'][district]['xa-phuong']).map((item) => {
-                    let wardd = provinces[province]['quan-huyen'][district]['xa-phuong'][item];
-                    return (                      
-                      <Picker.Item label={wardd.name_with_type} value={wardd.code} key={wardd.code} />
-                    )
-                  })
-                }
+                style={{height: 50, width: 370}}
+                onValueChange={(itemValue, itemIndex) => setWard(itemValue)}>
+                <Picker.Item label="Chọn" value={null} key={null} />
+                {province !== null &&
+                  district !== null &&
+                  Object.keys(
+                    provinces[province]['quan-huyen'][district]['xa-phuong'],
+                  ).map(item => {
+                    let wardd =
+                      provinces[province]['quan-huyen'][district]['xa-phuong'][
+                        item
+                      ];
+                    return (
+                      <Picker.Item
+                        label={wardd.name_with_type}
+                        value={wardd.code}
+                        key={wardd.code}
+                      />
+                    );
+                  })}
               </Picker>
             </View>
             {isFieldInError('ward') &&
               getErrorsInField('ward').map(errorMessage => (
                 <Text style={styles.errMessage}>{errorMessage}</Text>
-            ))}
+              ))}
 
             {/*Ấp/Khu phố*/}
-            <Text style={styles.title}>Ấp/Khu phố <Text style={styles.redStar}>*</Text></Text>
+            <Text style={styles.title}>
+              Ấp/Khu phố <Text style={styles.redStar}>*</Text>
+            </Text>
             <InputValue
               placeholder="Ấp/Khu phố"
               onChangeText={town => setTown(town)}
@@ -285,7 +333,7 @@ function Info() {
             {isFieldInError('town') &&
               getErrorsInField('town').map(errorMessage => (
                 <Text style={styles.errMessage}>{errorMessage}</Text>
-            ))}
+              ))}
 
             {/*Địa chỉ chi tiết*/}
             <Text style={styles.title}>Địa chỉ chi tiết</Text>
@@ -296,7 +344,7 @@ function Info() {
             {isFieldInError('detailAdd') &&
               getErrorsInField('detailAdd').map(errorMessage => (
                 <Text style={styles.errMessage}>{errorMessage}</Text>
-            ))}
+              ))}
 
             {/*Ghi chú*/}
             <Text style={styles.title}>Ghi chú</Text>
@@ -304,33 +352,49 @@ function Info() {
               <TextInput
                 multiline
                 numberOfLines={3}
-                style={{ backgroundColor: '#f8f9fa', fontSize: 14, width: 350, }}
+                style={{backgroundColor: '#f8f9fa', fontSize: 14, width: 350}}
                 textAlignVertical="top"
                 placeholder="Ghi chú"
                 onChangeText={note => setNote(note)}
               />
             </View>
 
-            <View style={{ flexDirection: 'row', marginHorizontal: 20, alignContent: 'center', marginTop: 5 }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginHorizontal: 20,
+                alignContent: 'center',
+                marginTop: 5,
+              }}>
               <CheckBox
-                style={{ marginLeft: -15 }}
+                style={{marginLeft: -15}}
                 disabled={false}
                 value={agree}
-                onValueChange={(newValue) => setAgree(newValue)}
+                onValueChange={newValue => setAgree(newValue)}
               />
               <Text>
-                Tôi cam kết các thông tin công khai là đúng sự thật và đồng ý với
-                <Text style={{ color: COLORS.primary }} onPress={() => Linking.openURL('http://google.com')}> Điều khoản sử dụng</Text>
+                Tôi cam kết các thông tin công khai là đúng sự thật và đồng ý
+                với
+                <Text
+                  style={{color: COLORS.primary}}
+                  onPress={() => Linking.openURL('http://google.com')}>
+                  {' '}
+                  Điều khoản sử dụng
+                </Text>
               </Text>
             </View>
 
             {isFieldInError('agree') &&
               getErrorsInField('agree').map(errorMessage => (
                 <Text style={styles.errMessage}>{errorMessage}</Text>
-            ))}
+              ))}
 
-            <TouchableOpacity disabled={!agree} style={agree ? styles.button : styles.disableButton} onSubmit onPress={onPressButton}>
-              <Text style={{ color: 'white', fontSize: 16 }}>ĐỒNG Ý</Text>
+            <TouchableOpacity
+              disabled={!agree}
+              style={agree ? styles.button : styles.disableButton}
+              onSubmit
+              onPress={onPressButton}>
+              <Text style={{color: 'white', fontSize: 16}}>ĐỒNG Ý</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
