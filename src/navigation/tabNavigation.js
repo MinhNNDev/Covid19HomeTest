@@ -43,7 +43,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         name="Danh mục"
-        component={Category}
+        component={ScanHistory}
         options={{headerShown: false}}
       />
     </Tab.Navigator>

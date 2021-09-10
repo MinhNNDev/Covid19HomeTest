@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import COLORS from '../../constants/theme'
+import {COLORS} from '../../constants/theme'
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
@@ -7,12 +7,14 @@ const styles = StyleSheet.create({
     height: 70,
     backgroundColor: COLORS.white,
     elevation: 7,
-    padding: 10
+    padding: 10,
+    shadowColor: COLORS.black,
+    shadowOpacity: 0.7,
   },
   name: {
     color: COLORS.blue,
     fontSize: 16,
-    paddingLeft: 10
+    paddingLeft: 10,
   },
 });
 export default styles
