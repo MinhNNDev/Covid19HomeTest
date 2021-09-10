@@ -1,37 +1,48 @@
 import {StyleSheet} from 'react-native';
-import {COLORS, SIZES} from '../../constants/theme';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: 10,
-    justifyContent: 'space-evenly',
-  },
-  warningSdt: {
-    color: COLORS.red,
-  },
-  inputVal: {
-    marginHorizontal: 10,
+    height: 40,
+    flexDirection: 'column',
   },
   lable: {
+    width: null,
     height: 150,
     textAlign: 'center',
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    fontSize: 20,
+    padding: 20,
+    fontSize: 20
   },
   txtInformation: {
-    margin: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: COLORS.primary,
+    color: '#338AFF',
     fontSize: 25,
+  },
+
+  phoneInput: {
+    height: 50,
+    marginTop: 30,
+    marginBottom: 25,
+    marginLeft: 20,
+    marginRight: 20,
+    borderRadius: 12,
+    borderWidth: 0.1,
+    padding: 5,
+    fontSize: 15,
+    flexDirection: 'row',
+  },
+  icon: {
+    marginTop: 5,
+    marginRight: 5,
+    marginLeft: 5,
   },
   confirm: {
     flexDirection: 'row',
     margin: 10,
     alignSelf: 'center',
-    marginHorizontal: 10,
+    marginRight: 10,
+    marginLeft: 30
   },
   txtConform: {
     color: '#0C0E11',
@@ -47,26 +58,26 @@ export const styles = StyleSheet.create({
   btnNext: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: SIZES.radius,
-    height: 50,
-    backgroundColor: COLORS.primary,
-    marginHorizontal: 80,
+    borderRadius: 12,
+    height: 60,
+    backgroundColor: '#CDCECF',
+    marginLeft: 80,
+    marginRight: 80,
     marginTop: 50,
   },
   next: {
     color: 'white',
-    fontWeight: 'bold',
-    fontSize: 16,
   },
   btnSkip: {
     justifyContent: 'center',
     alignItems: 'center',
     height: 60,
-    marginHorizontal: 80,
-    // marginTop: 100,
+    marginLeft: 80,
+    marginRight: 80,
+    marginTop: 100,
   },
   skip: {
-    fontSize: 18,
-    color: COLORS.primary,
+    fontSize: 20,
+    color: '#0D68C3',
   },
 });

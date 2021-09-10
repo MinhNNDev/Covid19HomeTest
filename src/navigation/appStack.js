@@ -1,8 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import Tabs from './tabNavigation';
-import {Home, Profile, Category, Phone, ScanHistory} from '../screens';
+import {Home, Profile, Category, Phone} from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -11,10 +10,10 @@ const appStack = () => {
     <Stack.Navigator initialRouteName="Info">
       <Stack.Screen
         name="Home"
-        component={Tabs}
+        component={Home}
         options={{headerShown: false}}
       />
-      {/* <Stack.Screen
+      <Stack.Screen
         name="Profile"
         component={Profile}
         options={{headerShown: false}}
@@ -28,11 +27,6 @@ const appStack = () => {
       <Stack.Screen
         name="Phone"
         component={Phone}
-        options={{headerShown: false}}
-      /> */}
-      <Stack.Screen
-        name="History"
-        component={ScanHistory}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
