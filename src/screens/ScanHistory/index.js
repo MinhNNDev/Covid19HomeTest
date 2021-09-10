@@ -92,7 +92,6 @@ const Category = () => {
           circleColor={COLORS.primary}
           lineColor={COLORS.primary}
           timeContainerStyle={{minWidth: 110, marginTop: 10}}
-          circleStyle={{marginLeft:62}}
           timeStyle={{
             textAlign: 'center',
             backgroundColor: COLORS.primary,
@@ -104,7 +103,7 @@ const Category = () => {
           descriptionStyle={{color: 'gray'}}
           options={{
             style: {paddingTop: 5},
-            showsVerticalScrollIndicator: false
+            showsVerticalScrollIndicator: false,
           }}
           innerCircle={'dot'}
         />
