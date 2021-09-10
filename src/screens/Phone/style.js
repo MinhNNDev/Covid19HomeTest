@@ -9,20 +9,20 @@ export const styles = StyleSheet.create({
   lable: {
     width: null,
     height: 150,
+    textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 20,
+    fontSize: 20
   },
-  textLog: {
+  txtInformation: {
     color: '#338AFF',
     fontSize: 25,
   },
-  textLog2: {
-    color: '#0C0E11',
-    fontSize: 20,
-  },
+
   phoneInput: {
     height: 50,
-    marginTop: 50,
+    marginTop: 30,
     marginBottom: 25,
     marginLeft: 20,
     marginRight: 20,
@@ -41,14 +41,17 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     margin: 10,
     alignSelf: 'center',
+    marginRight: 10,
+    marginLeft: 30
   },
-  textLog3: {
+  txtConform: {
     color: '#0C0E11',
     fontSize: 13,
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight: 30,
   },
-  textLog4: {
+  txtRules: {
     color: '#0D68C3',
     fontWeight: 'bold',
   },
