@@ -19,7 +19,7 @@ const App = () => {
     <ApolloProvider client={client}>
       {/* <StoreProvider store={store}> */}
       <NavigationContainer>
-        <Tabs />
+        <AuthStack />
       </NavigationContainer>
       {/* </StoreProvider> */}
     </ApolloProvider>
