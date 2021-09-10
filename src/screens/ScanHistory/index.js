@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View, TouchableOpacity} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import Header from '../../components/Header/index';
+import {Header} from '../../components';
 import {styles} from './style';
 
 const Category = () => {

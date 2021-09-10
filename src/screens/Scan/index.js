@@ -7,7 +7,7 @@ import * as Animatable from 'react-native-animatable';
 import {styles} from './style';
 import {SIZES} from '../../constants/theme';
 
-const iconScanColor = 'rgba(255,255,255,0.3)';
+const iconScanColor = 'rgba(255,255,255,0.1)';
 
 const Scan = () => {
   // eslint-disable-next-line no-unused-vars

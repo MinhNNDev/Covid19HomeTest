@@ -7,7 +7,7 @@ import {
   ScrollView,
   FlatList,
 } from 'react-native';
-import Header from '../../components/Header/index';
+import {Header} from '../../components';
 import Feather from 'react-native-vector-icons/Feather';
 import {styles} from './style';
 

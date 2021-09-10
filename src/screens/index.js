@@ -7,10 +7,11 @@ import Category from './Category';
 import ScanHistory from './ScanHistory';
 import Info from './Info';
 import AuthOTP from './OTP';
-// import Phone from './Phone';
+import Phone from './Phone';
 
 export {
   Auth,
+  Phone,
   Info,
   Home,
   Profile,

@@ -1,12 +1,8 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  TouchableOpacity,
-} from 'react-native';
+import {Text, View, TouchableOpacity} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
-import Header from '../../components/Header/index';
+import {Header} from '../../components';
 import {styles} from './style';
 const TOpacityCustom = props => {
   const {icon, title} = props;
