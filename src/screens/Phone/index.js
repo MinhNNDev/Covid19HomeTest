@@ -1,14 +1,31 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-// import {CheckBox} from 'react-native-elements';
+import auth from '@react-native-firebase/auth';
 import CheckBox from '@react-native-community/checkbox';
 import {InputValue} from '../../components';
 import {styles} from './style';
 import {COLORS} from '../../constants/theme';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Phone = ({navigation}) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [isSelected, setSelection] = useState(false);
+  const [confirm, setConfirm] = useState(null);
+
+  async function signInWithPhoneNumber(phoneNum) {
+    const confirmation = await auth().signInWithPhoneNumber(phoneNum);
+    await AsyncStorage.setItem('tokenVerifyId', confirmation.verificationId);
+    setConfirm(confirmation);
+    console.log('Confirm: ', await AsyncStorage.getItem('tokenVerifyId'));
+  }
+
+  const handleContinueAuth = async () => {
+    await signInWithPhoneNumber(phoneNumber);
+    const token = await AsyncStorage.getItem('tokenVerifyId');
+    if (token !== null) {
+      navigation.navigate('OTP', {phoneNumber, confirm});
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -44,7 +61,7 @@ const Phone = ({navigation}) => {
       </View>
       <TouchableOpacity
         disabled={isSelected ? false : true}
-        onPress={() => navigation.navigate('OTP', {phoneNumber})}
+        onPress={() => handleContinueAuth()}
         style={[
           styles.btnNext,
           {

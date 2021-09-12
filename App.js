@@ -5,17 +5,14 @@
 
 import React, {useState} from 'react';
 import {LogBox} from 'react-native';
-import {Provider as StoreProvider} from 'react-redux';
-import {NavigationContainer} from '@react-navigation/native';
+import {Provider} from 'react-redux';
 import {ApolloProvider} from '@apollo/client';
-// import store from './src/redux/store/store';
+import store from './src/redux/store/store';
 import {client} from './src/api/graphql';
 
-import AppStack from './src/navigation/appStack';
-import AuthStack from './src/navigation/authStack';
-import Tabs from './src/navigation/tabNavigation';
+import Root from './src/navigation';
 
-const App = () => {
+const App = props => {
   LogBox.ignoreLogs([
     'Remote Debugger',
     'VirtualizedLists should never be nested',
@@ -23,14 +20,11 @@ const App = () => {
     'Bottom Tab Navigator',
   ]);
 
-  const [isLogin, setIsLogin] = useState(true);
   return (
     <ApolloProvider client={client}>
-      {/* <StoreProvider store={store}> */}
-      <NavigationContainer>
-        {isLogin ? <AppStack /> : <AuthStack />}
-      </NavigationContainer>
-      {/* </StoreProvider> */}
+      <Provider store={store}>
+        <Root />
+      </Provider>
     </ApolloProvider>
   );
 };

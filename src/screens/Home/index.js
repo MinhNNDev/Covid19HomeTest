@@ -25,11 +25,6 @@ const Home = () => {
 
   const [markerList, setMarkers] = useState();
 
-  // const renderMarkers = c => {
-  //   console.log('CCCC: ', c);
-  //   <MapMarker data={c} />;
-  // };
-
   useEffect(() => {
     if (!loading && data) {
       setDataNational(data.totalVietNam);
@@ -37,8 +32,8 @@ const Home = () => {
     }
   }, [loading, data]);
 
-  console.log('DATA COVID', dataNational);
-  console.log('DATA PROVINCE', dataProvince);
+  // console.log('DATA COVID', dataNational);
+  // console.log('DATA PROVINCE', dataProvince);
 
   const chartConfig = {
     backgroundGradientFrom: '#1E2923',
