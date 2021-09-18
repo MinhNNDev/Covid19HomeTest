@@ -19,14 +19,14 @@ const AuthOTP = ({route}) => {
   const [userInfo, setUserInfo] = useState('');
 
   const confirmCode = async otp => {
-    console.log(confirm, otp);
+    console.log('Log :', confirm, otp);
     try {
       await confirm.confirm(otp);
-      const user = auth().currentUser;
-      dispatch(loginAction(user));
+      // const user = auth().currentUser;
+      console.log('======> ');
     } catch (error) {
       // Alert.alert('SMS OTP', 'Mã xác thực không hợp lệ !');
-      console.log('Invalid code.');
+      console.log('Invalid code. ', error);
     }
   };
 
@@ -86,17 +86,6 @@ const AuthOTP = ({route}) => {
             <Text style={styles.txtResend}>Gữi lại code</Text>
           </TouchableOpacity>
         </View>
-        {/* <TouchableOpacity
-          onPress={() => confirmCode()}
-          style={[
-            styles.btnVerify,
-            {
-              backgroundColor:
-                code.length === 6 ? COLORS.primary : COLORS.lightGray3,
-            },
-          ]}>
-          <Text style={styles.txtVerify}>Xác nhận</Text>
-        </TouchableOpacity> */}
       </View>
     </View>
   );

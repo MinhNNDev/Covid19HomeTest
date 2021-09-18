@@ -3,17 +3,16 @@
  * @flow strict-local
  */
 
-import React, {useState} from 'react';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 
 import AppStack from './appStack';
 import AuthStack from './authStack';
 
-const Root = props => {
+const Root = () => {
   const {auth} = useSelector(state => state);
-  console.log(auth);
-  const [isLogin, setIsLogin] = useState(false);
+  console.log('Redux: ', auth);
   return (
     <NavigationContainer>
       {auth.tokenAccount !== null ? <AppStack /> : <AuthStack />}

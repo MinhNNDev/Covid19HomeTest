@@ -4,7 +4,20 @@ import {COLORS, SIZES} from '../../constants/theme';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: COLORS.white,
+  },
+  containerLoading: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: COLORS.white,
+  },
+  headerBg: {
     paddingHorizontal: 10,
+    width: SIZES.width,
+    // height: SIZES.height * 0.3,
+    backgroundColor: COLORS.primary,
+    paddingBottom: 20,
   },
   areaChart: {height: 200, paddingVertical: 16},
   topParams: {
@@ -12,42 +25,38 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
   },
   txtHeader: {
-    marginVertical: 10,
-    fontSize: 25,
+    marginVertical: 20,
+    fontSize: 22,
     fontWeight: '700',
+    color: COLORS.white,
   },
-  anytime: {
-    fontSize: 24,
+  viewData: {
+    padding: 10,
+    width: 100,
+    borderRadius: 8,
+  },
+  data: {
+    marginTop: 20,
+    fontSize: 20,
+    color: COLORS.white,
     fontWeight: 'bold',
-    paddingTop: 15,
-    width: 110,
-    textAlign: 'center',
-    borderRadius: 4,
   },
   status: {
-    fontSize: 14,
-    paddingBottom: 10,
-    color: '#000',
-    width: 110,
-    textAlign: 'center',
-  },
-  day: {
-    fontSize: 16,
     fontWeight: 'bold',
-    color: '#FFFFFF',
-    paddingVertical: 5,
-    width: 110,
-    textAlign: 'center',
-    borderRadius: 4,
+    fontSize: 14,
+    color: COLORS.white,
   },
   txtDateUpdate: {
-    marginTop: 5,
+    textAlign: 'right',
+    margin: 10,
+    fontSize: 12,
+    color: COLORS.white,
   },
   listTab: {
+    marginHorizontal: 10,
     borderRadius: 10,
-    marginVertical: 20,
     flexDirection: 'row',
-    backgroundColor: COLORS.secondary,
+    backgroundColor: COLORS.whiteOpacity,
   },
   chartStyle: {
     margin: 5,
@@ -77,7 +86,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   btnEnable: {
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.blue,
     borderRadius: 8,
     margin: 1,
   },

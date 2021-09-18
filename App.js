@@ -3,7 +3,7 @@
  * @flow strict-local
  */
 
-import React, {useState} from 'react';
+import React from 'react';
 import {LogBox} from 'react-native';
 import {Provider} from 'react-redux';
 import {ApolloProvider} from '@apollo/client';
@@ -12,7 +12,7 @@ import {client} from './src/api/graphql';
 
 import Root from './src/navigation';
 
-const App = props => {
+const App = () => {
   LogBox.ignoreLogs([
     'Remote Debugger',
     'VirtualizedLists should never be nested',

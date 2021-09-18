@@ -10,9 +10,10 @@ export const loginAction = user => {
   return async dispatch => {
     try {
       const uidUserToken = user.uid;
-      console.log('UID: ', uidUserToken);
+      await AsyncStorage.setItem('uidUserToken', user.uid);
+      const uidStore = await AsyncStorage.getItem('uidUserToken');
       if (uidUserToken) {
-        dispatch({type: RETRIEVE_TOKEN, token: uidUserToken});
+        dispatch({type: RETRIEVE_TOKEN, token: uidStore});
       }
     } catch (error) {
       console.log(error);

@@ -24,6 +24,7 @@ const Tabs = () => {
           }
           return <MaterialIcons name={iconName} size={size} color={color} />;
         },
+        headerShown: false,
       })}
       tabBarOptions={{
         tabBarActiveTintColor: COLORS.primary,
@@ -35,22 +36,10 @@ const Tabs = () => {
           null,
         ],
       }}>
-      <Tab.Screen
-        name="Trang chủ"
-        component={Home}
-        options={{headerShown: false}}
-      />
+      <Tab.Screen name="Trang chủ" component={Home} />
       {/* <Tab.Screen name="Sức khỏe" component={Health} /> */}
-      <Tab.Screen
-        name="Quét mã"
-        component={Scan}
-        options={{headerShown: false}}
-      />
-      <Tab.Screen
-        name="Danh mục"
-        component={Category}
-        options={{headerShown: false}}
-      />
+      <Tab.Screen name="Quét mã" component={Scan} />
+      <Tab.Screen name="Danh mục" component={Category} />
     </Tab.Navigator>
   );
 };

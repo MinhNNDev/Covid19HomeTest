@@ -6,52 +6,54 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Icons from 'react-native-vector-icons/FontAwesome';
 import {COLORS} from '../constants/theme';
 
 export default function InputValue({
-    title,
-    icon,
-    isPassword,
-    onChangeText,
-    keyboardType,
-    value,
-    placeholder,
-    onEndEditing,
+  title,
+  icon,
+  isPassword,
+  onChangeText,
+  keyboardType,
+  value,
+  placeholder,
+  onEndEditing,
+  vnZone,
 }) {
-    const [show, setShow] = useState(false);
-    const [visible, setVisible] = useState(true);
+  const [show, setShow] = useState(false);
+  const [visible, setVisible] = useState(true);
 
-    return(
-      <View style={styles.container}>
-        {title && <Text style={styles.title}> {title} </Text>}
-        <View style={styles.inputContainer}>
-          <FontAwesome name={icon} size={22} color={COLORS.gray} />
-          <TextInput
-            placeholder={placeholder}
-            style={styles.input}
-            keyboardType={keyboardType}
-            onChangeText={onChangeText}
-            secureTextEntry={isPassword ? visible : !visible}
-            value={value}
-            onEndEditing={onEndEditing}
-          />
-          {isPassword && (
-            <TouchableOpacity
-              onPress={() => {
-                setShow(!show);
-                setVisible(!visible);
-              }}>
-              <Icons
-                name={show === false ? 'eye' : 'eye-off'}
-                size={20}
-                color={COLORS.primary}
-              />
-            </TouchableOpacity>
-          )}
-        </View>
+  return (
+    <View style={styles.container}>
+      {title && <Text style={styles.title}> {title} </Text>}
+      <View style={styles.inputContainer}>
+        <Icons name={icon} size={22} color={COLORS.gray} />
+        {vnZone && <Text> {vnZone}</Text>}
+        <TextInput
+          placeholder={placeholder}
+          style={styles.input}
+          keyboardType={keyboardType}
+          onChangeText={onChangeText}
+          secureTextEntry={isPassword ? visible : !visible}
+          value={value}
+          onEndEditing={onEndEditing}
+        />
+        {isPassword && (
+          <TouchableOpacity
+            onPress={() => {
+              setShow(!show);
+              setVisible(!visible);
+            }}>
+            <Icons
+              name={show === false ? 'eye' : 'eye-off'}
+              size={20}
+              color={COLORS.primary}
+            />
+          </TouchableOpacity>
+        )}
       </View>
-    );
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -80,6 +82,6 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    paddingLeft: 8
+    paddingLeft: 8,
   },
 });

@@ -10,7 +10,7 @@ const rectBorderColor = 'rgba(255,255,255,0.8)';
 
 const scanBarWidth = SIZES.width * 0.46;
 const scanBarHeight = SIZES.width * 0.0025;
-const scanBarColor = COLORS.lightGreen;
+const scanBarColor = COLORS.green;
 
 export const styles = StyleSheet.create({
   container: {flex: 1},

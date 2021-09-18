@@ -2,27 +2,28 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Tabs from './tabNavigation';
-import {Home, Profile, Category, Phone, ScanHistory} from '../screens';
+import {Home, Profile, Info, ScanHistory} from '../screens';
 
 const Stack = createStackNavigator();
 
 const appStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Info">
+    <Stack.Navigator initialRouteName="Home">
       <Stack.Screen
         name="Home"
         component={Tabs}
         options={{headerShown: false}}
       />
-      {/* <Stack.Screen
+      <Stack.Screen
         name="Profile"
         component={Profile}
         options={{headerShown: false}}
-	@@ -28,6 +29,11 @@ const appStack = () => {
-        name="Phone"
-        component={Phone}
+      />
+      <Stack.Screen
+        name="Info"
+        component={Info}
         options={{headerShown: false}}
-      /> */}
+      />
       <Stack.Screen
         name="History"
         component={ScanHistory}
