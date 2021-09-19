@@ -6,20 +6,10 @@ const Stack = createStackNavigator();
 
 const authStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Info">
+    <Stack.Navigator initialRouteName="Phone">
       <Stack.Screen
         name="Phone"
         component={Phone}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="OTP"
-        component={AuthOTP}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Info"
-        component={Info}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

@@ -1,12 +1,12 @@
 import Auth from './Auth';
 import Home from './Home';
 import Profile from './Profile';
+import Health from './Health';
 import Scan from './Scan';
-import Feedback from './Feedback';
+import Transport from './Transport';
 import Category from './Category';
 import ScanHistory from './ScanHistory';
 import Info from './Info';
-import AuthOTP from './OTP';
 import Phone from './Phone';
 
 export {
@@ -14,10 +14,10 @@ export {
   Info,
   Home,
   Phone,
+  Health,
   Profile,
   Scan,
-  Feedback,
+  Transport,
   Category,
   ScanHistory,
-  AuthOTP,
 };

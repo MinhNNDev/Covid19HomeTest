@@ -53,7 +53,7 @@ function Info() {
     setBdDisplay(format);
   };
 
-  const onChange = (event, selectedDate) => {
+  const onChange = (date, selectedDate) => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
     setBirthday(currentDate);

@@ -15,10 +15,10 @@ const scanBarColor = COLORS.green;
 export const styles = StyleSheet.create({
   container: {flex: 1},
   txtDescScan: {
-    fontSize: 20,
-    color: 'white',
+    fontSize: 16,
+    color: COLORS.lightGray3,
+    width: SIZES.width * 0.7,
     textAlign: 'center',
-    width: SIZES.width * 0.75,
   },
   customsQR: {flexDirection: 'row'},
   rectangleContainer: {
@@ -41,8 +41,8 @@ export const styles = StyleSheet.create({
     height: SIZES.width,
     width: SIZES.width,
     backgroundColor: overlayColor,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   bottomOverlay: {
     flex: 1,
@@ -50,6 +50,8 @@ export const styles = StyleSheet.create({
     width: SIZES.width,
     backgroundColor: overlayColor,
     paddingBottom: SIZES.width * 0.25,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   leftAndRightOverlay: {
     height: SIZES.width * 0.65,
@@ -60,5 +62,23 @@ export const styles = StyleSheet.create({
     width: scanBarWidth,
     height: scanBarHeight,
     backgroundColor: scanBarColor,
+  },
+  btnFlash: {
+    margin: 20,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btnHistory: {},
+  txtHistory: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: COLORS.whiteOpacity,
+    margin: 22,
+    borderBottomColor: COLORS.whiteOpacity,
+    borderBottomWidth: 3,
   },
 });

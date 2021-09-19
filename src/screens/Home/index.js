@@ -18,6 +18,11 @@ const Home = () => {
   const keys = ['danger', 'sucess', 'death'];
   const [dataProvince, setDataProvince] = useState([]);
   const [dataNational, setDataNational] = useState([]);
+  const [cases, setCase] = useState({
+    Confirmed: 0,
+    Recovered: 0,
+    Deaths: 0,
+  });
   const [tabs, setTabs] = useState(0);
   const {loading, error, data} = useQuery(GET_PARAMS_COVID);
 
@@ -27,17 +32,19 @@ const Home = () => {
     if (!loading && data) {
       setDataNational(data.totalVietNam);
       setDataProvince(data.provinces);
+      setCase({
+        Confirmed: data.totalVietNam.confirmed,
+        Recovered: data.totalVietNam.recovered,
+        Deaths: data.totalVietNam.deaths,
+      });
     }
-  }, [loading, data]);
+  }, [loading, data, tabs]);
 
-  // console.log('DATA COVID', dataNational);
+  console.log('DATA COVID', dataNational);
+  console.log('DATA PIE', cases);
   // console.log('DATA PROVINCE', dataProvince);
 
   const chartConfig = {
-    backgroundGradientFrom: '#1E2923',
-    backgroundGradientFromOpacity: 0,
-    backgroundGradientTo: '#08130D',
-    backgroundGradientToOpacity: 0.5,
     color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
     strokeWidth: 3, // optional, default 3
     barPercentage: 0.5,
@@ -46,21 +53,21 @@ const Home = () => {
   const dataPie = [
     {
       name: textDanger,
-      population: 550996,
+      population: cases.Confirmed,
       color: COLORS.yellow,
       legendFontColor: '#7F7F7F',
       legendFontSize: 12,
     },
     {
       name: textSucess,
-      population: 311710,
+      population: cases.Recovered,
       color: COLORS.green,
       legendFontColor: '#7F7F7F',
       legendFontSize: 12,
     },
     {
       name: textDeath,
-      population: 13700,
+      population: cases.Deaths,
       color: COLORS.red,
       legendFontColor: '#7F7F7F',
       legendFontSize: 12,

@@ -2,12 +2,12 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {styles} from './style';
 
-const Feedback = () => {
+const Transport = () => {
   return (
     <View style={styles.container}>
-      <Text>Feedback</Text>
+      <Text>Transport</Text>
     </View>
   );
-}
+};
 
-export default Feedback;
+export default Transport;

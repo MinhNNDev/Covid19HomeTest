@@ -1,15 +1,15 @@
 import React from 'react';
-import {View, Text, Linking} from 'react-native';
+import {View, Text, Linking, TouchableOpacity} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera} from 'react-native-camera';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as Animatable from 'react-native-animatable';
 import {styles} from './style';
-import {SIZES} from '../../constants/theme';
+import {COLORS, SIZES} from '../../constants/theme';
 
 const iconScanColor = 'rgba(255,255,255,0.1)';
 
-const Scan = () => {
+const Scan = ({navigation}) => {
   // eslint-disable-next-line no-unused-vars
   var scanner: Scanner;
 
@@ -54,9 +54,12 @@ const Scan = () => {
       customMarker={
         <View style={styles.rectangleContainer}>
           <View style={styles.topOverlay}>
-            <Text style={styles.txtDescScan}>
-              Di chuyển máy ảnh đến vùng có chứa mã QR/BarCode để quét
-            </Text>
+            <TouchableOpacity style={styles.btnFlash}>
+              <Icon name="flash-on" color={COLORS.whiteOpacity} size={28} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('History')}>
+              <Text style={styles.txtHistory}>Lịch sử test</Text>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.customsQR}>
@@ -83,7 +86,11 @@ const Scan = () => {
             <View style={styles.leftAndRightOverlay} />
           </View>
 
-          <View style={styles.bottomOverlay} />
+          <View style={styles.bottomOverlay}>
+            <Text style={styles.txtDescScan}>
+              Di chuyển máy ảnh đến vùng có chứa mã QR/BarCode để quét
+            </Text>
+          </View>
         </View>
       }
     />

@@ -20,6 +20,8 @@ target 'Covid19HomeTest' do
 
   pod 'RNCClipboard', :path => '../node_modules/@react-native-clipboard/clipboard'
 
+  pod 'react-native-geolocation-service', :path => '../node_modules/react-native-geolocation-service'
+
   target 'Covid19HomeTestTests' do
     inherit! :complete
     # Pods for testing
