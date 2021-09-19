@@ -13,47 +13,7 @@ const data = [
   {
     time: <TextTimeDate date="10/09/2021" time="10:12" />,
     title: 'Trần Lê Tấn Tài',
-    description: 'Chưa biết hiển thị cái gì chổ này',
-  },
-  {
-    time: <TextTimeDate date="10/09/2021" time="10:12" />,
-    title: 'Trần Lê Tấn Tài',
-    description: 'Chưa biết hiển thị cái gì chổ này',
-  },
-  {
-    time: <TextTimeDate date="10/09/2021" time="10:12" />,
-    title: 'Trần Lê Tấn Tài',
-    description: 'Chưa biết hiển thị cái gì chổ này',
-  },
-  {
-    time: <TextTimeDate date="10/09/2021" time="10:12" />,
-    title: 'Trần Lê Tấn Tài',
-    description: 'Chưa biết hiển thị cái gì chổ này',
-  },
-  {
-    time: <TextTimeDate date="10/09/2021" time="10:12" />,
-    title: 'Trần Lê Tấn Tài',
-    description: 'Chưa biết hiển thị cái gì chổ này',
-  },
-  {
-    time: <TextTimeDate date="10/09/2021" time="10:12" />,
-    title: 'Trần Lê Tấn Tài',
-    description: 'Chưa biết hiển thị cái gì chổ này',
-  },
-  {
-    time: <TextTimeDate date="10/09/2021" time="10:12" />,
-    title: 'Trần Lê Tấn Tài',
-    description: 'Chưa biết hiển thị cái gì chổ này',
-  },
-  {
-    time: <TextTimeDate date="10/09/2021" time="10:12" />,
-    title: 'Trần Lê Tấn Tài',
-    description: 'Chưa biết hiển thị cái gì chổ này',
-  },
-  {
-    time: <TextTimeDate date="10/09/2021" time="10:12" />,
-    title: 'Trần Lê Tấn Tài',
-    description: 'Chưa biết hiển thị cái gì chổ này',
+    description: 'Chỉ số PCR = 21 -> Âm tính',
   },
 ];
 

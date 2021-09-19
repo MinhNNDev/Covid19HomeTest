@@ -30,7 +30,6 @@ const Category = () => {
           timeContainerStyle={{minWidth: 110, marginTop: 10}}
           circleStyle={{marginLeft: 62}}
           timeStyle={{
-            textAlign: 'center',
             backgroundColor: COLORS.primary,
             color: 'white',
             padding: 5,
@@ -42,7 +41,7 @@ const Category = () => {
             style: {paddingTop: 5},
             showsVerticalScrollIndicator: false,
           }}
-          innerCircle={'dot'}
+          // innerCircle={'dot'}
         />
       </View>
     </>

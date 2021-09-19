@@ -5,7 +5,7 @@ import {styles} from './style';
 function Health() {
   return (
     <View style={styles.container}>
-      <Text>Health</Text>
+      <Text>Khai báo y tế</Text>
     </View>
   );
 }

@@ -17,12 +17,21 @@ const TOpacityCustom = props => {
 const Category = ({navigation}) => {
   return (
     <View>
-      <Header title="Danh mục" />
       <View style={styles.container}>
         <TOpacityCustom
           icon="user"
           title="Thông tin cá nhân"
           onPress={() => navigation.navigate('Info')}
+        />
+        <TOpacityCustom
+          icon="archive"
+          title="Đăng kí nhận Kit Test"
+          onPress={() => navigation.navigate('Info')}
+        />
+        <TOpacityCustom
+          icon="activity"
+          title="Thông tin vận chuyển"
+          onPress={() => navigation.navigate('Transport')}
         />
         <TOpacityCustom icon="message-circle" title="Gửi hỏi đáp" />
         <TOpacityCustom icon="alert-circle" title="Giới thiệu" />

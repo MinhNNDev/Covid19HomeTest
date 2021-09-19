@@ -17,12 +17,8 @@ const Tabs = () => {
 
           if (route.name === 'Trang chủ') {
             iconName = focused ? 'home' : 'home';
-          } else if (route.name === 'Sức khỏe') {
-            iconName = focused ? 'heart-box' : 'heart-box';
           } else if (route.name === 'Quét mã') {
             iconName = focused ? 'qrcode' : 'qrcode';
-          } else if (route.name === 'Vận chuyển') {
-            iconName = focused ? 'car' : 'car';
           } else if (route.name === 'Danh mục') {
             iconName = focused ? 'menu' : 'menu';
           }
@@ -41,9 +37,9 @@ const Tabs = () => {
         ],
       }}>
       <Tab.Screen name="Trang chủ" component={Home} />
-      <Tab.Screen name="Sức khỏe" component={Health} />
+      {/* <Tab.Screen name="Sức khỏe" component={Health} /> */}
       <Tab.Screen name="Quét mã" component={Scan} />
-      <Tab.Screen name="Vận chuyển" component={Transport} />
+      {/* <Tab.Screen name="Vận chuyển" component={Transport} /> */}
       <Tab.Screen name="Danh mục" component={Category} />
     </Tab.Navigator>
   );

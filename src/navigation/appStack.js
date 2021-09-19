@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Tabs from './tabNavigation';
-import {Home, Profile, Info, ScanHistory} from '../screens';
+import {Transport, Profile, Info, ScanHistory} from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +22,11 @@ const appStack = () => {
       <Stack.Screen
         name="Info"
         component={Info}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Transport"
+        component={Transport}
         options={{headerShown: false}}
       />
       <Stack.Screen

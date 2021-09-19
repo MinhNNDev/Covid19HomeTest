@@ -19,7 +19,18 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     paddingBottom: 20,
   },
-  areaChart: {height: 200, paddingVertical: 16},
+  areaChart: {
+    height: 200,
+    padding: 10,
+    shadowColor: COLORS.black,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7,
+  },
   topParams: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',

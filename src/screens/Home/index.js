@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {Text, View, TouchableOpacity, ActivityIndicator} from 'react-native';
 import {PieChart} from 'react-native-chart-kit';
 import MapView, {Marker} from 'react-native-maps';
+import {StackedAreaChart} from 'react-native-svg-charts';
+import * as shape from 'd3-shape';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useQuery} from '@apollo/client';
 
@@ -32,16 +34,11 @@ const Home = () => {
     if (!loading && data) {
       setDataNational(data.totalVietNam);
       setDataProvince(data.provinces);
-      setCase({
-        Confirmed: data.totalVietNam.confirmed,
-        Recovered: data.totalVietNam.recovered,
-        Deaths: data.totalVietNam.deaths,
-      });
     }
-  }, [loading, data, tabs]);
+  }, [loading, data]);
 
-  console.log('DATA COVID', dataNational);
-  console.log('DATA PIE', cases);
+  // console.log('DATA COVID', dataNational);
+  // console.log('DATA PIE', cases);
   // console.log('DATA PROVINCE', dataProvince);
 
   const chartConfig = {
@@ -53,24 +50,50 @@ const Home = () => {
   const dataPie = [
     {
       name: textDanger,
-      population: cases.Confirmed,
+      population: 550969,
       color: COLORS.yellow,
       legendFontColor: '#7F7F7F',
       legendFontSize: 12,
     },
     {
       name: textSucess,
-      population: cases.Recovered,
+      population: 311170,
       color: COLORS.green,
       legendFontColor: '#7F7F7F',
       legendFontSize: 12,
     },
     {
       name: textDeath,
-      population: cases.Deaths,
+      population: 15702,
       color: COLORS.red,
       legendFontColor: '#7F7F7F',
       legendFontSize: 12,
+    },
+  ];
+  const dataArea = [
+    {
+      month: new Date(2021, 0, 1),
+      danger: 129356,
+      sucess: 60289,
+      death: 2632,
+    },
+    {
+      month: new Date(2021, 1, 1),
+      danger: 282648,
+      sucess: 150301,
+      death: 9160,
+    },
+    {
+      month: new Date(2021, 2, 1),
+      danger: 486003,
+      sucess: 286029,
+      death: 9831,
+    },
+    {
+      month: new Date(2021, 3, 1),
+      danger: 564646,
+      sucess: 311654,
+      death: 12655,
     },
   ];
 
@@ -140,6 +163,15 @@ const Home = () => {
             backgroundColor={'transparent'}
             center={[10, 0]}
             absolute
+          />
+          <StackedAreaChart
+            style={styles.areaChart}
+            data={dataArea}
+            keys={keys}
+            colors={colors}
+            curve={shape.curveNatural}
+            showGrid={false}
+            // svgs={svgs}
           />
         </>
       )}
