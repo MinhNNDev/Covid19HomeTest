@@ -151,7 +151,7 @@ function Info() {
             <View style={styles.inputContainer}>
               <Feather name="calendar" style={{fontSize: 22}} />
               <TextInput
-                style={styles.inputContent}
+                style={styles.birthdayInput}
                 placeholder="dd/MM/yyyy"
                 value={birthdayDisplay}
                 // onChangeText={birthday => setInfoUser({...infoUser, ...{birthday}})}
@@ -234,7 +234,6 @@ function Info() {
             <View style={styles.picker}>
               <Picker
                 province={province}
-                style={{height: 50, width: 370}}
                 onValueChange={(itemValue, itemIndex) => {
                   setProvince(itemValue);
                   setDistrict(null);
@@ -263,7 +262,6 @@ function Info() {
             <View style={styles.picker}>
               <Picker
                 district={district}
-                style={{height: 50, width: 370}}
                 onValueChange={(itemValue, itemIndex) => {
                   setDistrict(itemValue);
                   setWard(null);
@@ -295,7 +293,6 @@ function Info() {
             <View style={styles.picker}>
               <Picker
                 ward={ward}
-                style={{height: 50, width: 370}}
                 onValueChange={(itemValue, itemIndex) => setWard(itemValue)}>
                 <Picker.Item label="Chọn" value={null} key={null} />
                 {province !== null &&
@@ -352,7 +349,7 @@ function Info() {
               <TextInput
                 multiline
                 numberOfLines={3}
-                style={{backgroundColor: '#f8f9fa', fontSize: 14, width: 350}}
+                style={styles.noteInput}
                 textAlignVertical="top"
                 placeholder="Ghi chú"
                 onChangeText={note => setNote(note)}

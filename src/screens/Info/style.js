@@ -33,7 +33,6 @@ export const styles = StyleSheet.create({
   inputContent: {
     backgroundColor: '#f8f9fa',
     fontSize: 14,
-    width: 300,
     paddingLeft: 8
   },
   picker: {
@@ -41,7 +40,6 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 3,
     height: 50,
-    width: 370,
     marginBottom: 10
   },
   button: {
@@ -60,5 +58,16 @@ export const styles = StyleSheet.create({
     color: 'red',
     fontStyle: 'italic',
     paddingBottom: 5
+  },
+  noteInput: {
+    backgroundColor: '#f8f9fa', 
+    fontSize: 14, 
+    width: 300
+  },
+  birthdayInput: {
+    backgroundColor: '#f8f9fa',
+    fontSize: 14,
+    paddingLeft: 8,
+    width: 290
   }
 });
