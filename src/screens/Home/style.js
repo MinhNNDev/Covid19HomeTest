@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
   },
   data: {
     marginTop: 20,
-    fontSize: 20,
+    fontSize: 16,
     color: COLORS.white,
     fontWeight: 'bold',
   },

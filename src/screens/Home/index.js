@@ -131,23 +131,23 @@ const Home = () => {
             <Text style={styles.data}>{dataNational.deaths}</Text>
           </View>
         </View>
-        <Text style={styles.txtDateUpdate}>Cập nhật: 21:10, 04/09/2021</Text>
+        <Text style={styles.txtDateUpdate}>Cập nhật: 6:10, 09/06/2022</Text>
 
         <View style={styles.listTab}>
           <TouchableOpacity
             onPress={() => setTabs(0)}
-            style={[styles.button, tabs === 0 && styles.btnEnable]}>
-            <Text
-              style={[styles.buttonText, tabs === 0 && {color: COLORS.white}]}>
-              Biểu đồ
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => setTabs(1)}
             style={[styles.button, tabs === 1 && styles.btnEnable]}>
             <Text
               style={[styles.buttonText, tabs === 1 && {color: COLORS.white}]}>
               Map
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => setTabs(1)}
+            style={[styles.button, tabs === 0 && styles.btnEnable]}>
+            <Text
+              style={[styles.buttonText, tabs === 0 && {color: COLORS.white}]}>
+              Biểu đồ
             </Text>
           </TouchableOpacity>
         </View>
