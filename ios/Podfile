@@ -12,6 +12,16 @@ target 'Covid19HomeTest' do
     :hermes_enabled => false
   )
 
+  pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
+
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
+  pod 'react-native-background-timer', :path => '../node_modules/react-native-background-timer'
+
+  pod 'RNCClipboard', :path => '../node_modules/@react-native-clipboard/clipboard'
+
+  pod 'react-native-geolocation-service', :path => '../node_modules/react-native-geolocation-service'
+
   target 'Covid19HomeTestTests' do
     inherit! :complete
     # Pods for testing
